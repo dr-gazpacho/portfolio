@@ -1,0 +1,1 @@
+<div>THIS IS BOILER PLATE COMICS</div>
