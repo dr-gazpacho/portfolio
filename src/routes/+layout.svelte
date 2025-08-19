@@ -1,5 +1,6 @@
 <script>
 	import favicon from '$lib/assets/favicon.svg';
+	import '$lib/styles/style.css';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
