@@ -4,6 +4,7 @@ import adapter from '@sveltejs/adapter-auto';
 import sveltePreprocess from 'svelte-preprocess';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import autoprefixer from 'autoprefixer';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -15,7 +16,14 @@ const config = {
 			extensions: ['.md'],
 			rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings]
 		}), 
-		sveltePreprocess()
+		sveltePreprocess({
+			postcss: {
+				plugins: [autoprefixer]
+			}
+			/* Other sveltePreprocess options here, like SCSS */
+		}
+			
+		)
 	],
 	extensions: ['.svelte', '.svx', '.md']
 };
