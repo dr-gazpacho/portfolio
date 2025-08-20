@@ -37,5 +37,7 @@
 		"vitest": "^3.2.3"
 	},
 	"dependencies": {
+		"rehype-autolink-headings": "^7.1.0",
+		"rehype-slug": "^6.0.0"
 	}
 }
