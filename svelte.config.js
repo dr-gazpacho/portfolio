@@ -17,12 +17,11 @@ const config = {
 			rehypePlugins: [rehypeSlug, rehypeAutolinkHeadings]
 		}), 
 		sveltePreprocess({
-			postcss: {
-				plugins: [autoprefixer]
-			}
+				postcss: {
+					plugins: [autoprefixer]
+				}
 			/* Other sveltePreprocess options here, like SCSS */
-		}
-			
+			}
 		)
 	],
 	extensions: ['.svelte', '.svx', '.md']
