@@ -20,5 +20,11 @@ export default [
 	{
 		files: ['**/*.svelte', '**/*.svelte.js'],
 		languageOptions: { parserOptions: { svelteConfig } }
-	}
+	},
+	{
+      "plugins": [
+        "jsdoc"
+      ]
+    }
+
 ];
