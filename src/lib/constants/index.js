@@ -5,27 +5,27 @@ export const pages = [
     },
     {
         displayName: "Blog",
-        route:"/blog"
+        route: "/blog"
     },
     {
         displayName: "Comics",
-        route:"/comics"
+        route: "/comics"
     },
-        {
+    {
         displayName: "Contact",
-        route:"/contact"
+        route: "/contact"
     },
-        {
+    {
         displayName: "Music",
-        route:"/music"
+        route: "/music"
     },
-        {
+    {
         displayName: "Projects",
-        route:"/projects"
+        route: "/projects"
     },
-        {
+    {
         displayName: "Radio",
-        route:"/radio"
+        route: "/radio"
     },
 
 ]
