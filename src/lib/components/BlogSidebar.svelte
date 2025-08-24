@@ -2,6 +2,12 @@
 	let { children } = $props();
 </script>
 
+<!-- 
+TO DO :
+ - Keyword search/fuzzy finder?
+ - Category filter
+ - Popular posts
+-->
 <section>
 	<aside>sidebar</aside>
 </section>

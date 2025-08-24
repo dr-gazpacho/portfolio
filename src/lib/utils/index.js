@@ -16,3 +16,10 @@ export const fetchMarkdownPosts = async () => {
 
 	return allPosts;
 };
+
+export const fetchDiscogsLibrary = async (fetch) => {
+	const api = "https://api.discogs.com/users/DJEdgarHoover/collection/folders"
+	const library = await fetch(api);
+	const libraryAsJson = await library.json();
+	console.log(libraryAsJson);
+}
