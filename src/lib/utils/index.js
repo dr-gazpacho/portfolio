@@ -1,3 +1,5 @@
+import { DISCOGS_SECRET, DISCOGS_KEY } from "$env/static/private";
+
 export const fetchMarkdownPosts = async () => {
 	const allPostFiles = import.meta.glob('/src/routes/blog/*.md');
 	const iterablePostFiles = Object.entries(allPostFiles); // iterablePostFiles = {path: resolver()}
@@ -16,10 +18,3 @@ export const fetchMarkdownPosts = async () => {
 
 	return allPosts;
 };
-
-export const fetchDiscogsLibrary = async (fetch) => {
-	const api = "https://api.discogs.com/users/DJEdgarHoover/collection/folders"
-	const library = await fetch(api);
-	const libraryAsJson = await library.json();
-	console.log(libraryAsJson);
-}
