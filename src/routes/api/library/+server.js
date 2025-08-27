@@ -1,6 +1,11 @@
 import { json } from "@sveltejs/kit";
 import { DISCOGS_SECRET, DISCOGS_KEY } from "$env/static/private";
 
+// TO DO:
+// Create new class to represent an element in the collection
+// Create second get method at /album or something to pull details
+// Figure out how the heck they can "submit a request"
+
 export const GET = async () => {
     let library = [];
 
