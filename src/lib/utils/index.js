@@ -19,16 +19,31 @@ export const fetchMarkdownPosts = async () => {
 	return allPosts;
 };
 
+export const formatArtists = (artists) => {
+	let artist;
+	for (let i = 0; i < artists.length; i++) {
+		artist += artists[i].name + artists[i].join;
+	}
+	return artist;
+}
+
 export const formatLibrary = (unformattedLibrary) => {
 	const genres = [];
 	const library = [];
+
 	unformattedLibrary.map(record => {
 		library.push({
-			artist: record?.basic_information?.artists
+			id: record?.basic_information?.id,
+			artist: record?.basic_information?.artists,
+			thumb: record?.basic_information?.thumb,
+			title: record?.basic_information?.title
 		})
 
-		const albumGenres = record?.basic_information?.genres;
-		albumGenres.map(genre => {
+		if (record?.basic_information?.artists?.length > 1) {
+			console.log(record?.basic_information?.artists)
+		}
+
+		record?.basic_information?.genres.map(genre => {
 			if (genres.indexOf(genre) === -1) {
 				genres.push(genre);
 			}
