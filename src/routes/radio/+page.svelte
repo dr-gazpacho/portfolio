@@ -1,9 +1,15 @@
-<div>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum, ut, ducimus eligendi nesciunt sint accusantium adipisci quas voluptates magnam ex facilis omnis nulla qui consequatur accusamus laborum earum quis sequi.
-</div>
-<div>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum, ut, ducimus eligendi nesciunt sint accusantium adipisci quas voluptates magnam ex facilis omnis nulla qui consequatur accusamus laborum earum quis sequi.
-</div>
-<div>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum, ut, ducimus eligendi nesciunt sint accusantium adipisci quas voluptates magnam ex facilis omnis nulla qui consequatur accusamus laborum earum quis sequi.
-</div>
+<script>
+	export let data;
+</script>
+
+<h1>Blog</h1>
+
+<ul>
+	{#each data.collection.library as record}
+		<li>
+			<h2>
+				{record.artist}
+			</h2>
+		</li>
+	{/each}
+</ul>
