@@ -18,3 +18,22 @@ export const fetchMarkdownPosts = async () => {
 
 	return allPosts;
 };
+
+export const formatLibrary = (unformattedLibrary) => {
+	const genres = [];
+	const library = [];
+	unformattedLibrary.map(record => {
+		library.push({
+			artist: record.basicInformation.artists
+		})
+
+		const albumGenres = record.basicInformation.genres;
+		albumGenres.map(genre => {
+			if (genres.indexOf(genre) !== -1 {
+				genres.push(genre);
+			}
+		})
+	})
+	return { library, genres }
+
+}
