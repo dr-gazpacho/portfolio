@@ -20,11 +20,11 @@ export const fetchMarkdownPosts = async () => {
 };
 
 export const formatArtists = (artists) => {
-	let artist;
+	let artist = '';
 	for (let i = 0; i < artists.length; i++) {
-		artist += artists[i].name + artists[i].join;
+		artist += artists[i].name + " " + artists[i].join + " ";
 	}
-	return artist;
+	return artist.trimEnd();
 }
 
 export const formatLibrary = (unformattedLibrary) => {
@@ -34,7 +34,7 @@ export const formatLibrary = (unformattedLibrary) => {
 	unformattedLibrary.map(record => {
 		library.push({
 			id: record?.basic_information?.id,
-			artist: record?.basic_information?.artists,
+			artist: formatArtists(record?.basic_information?.artists),
 			thumb: record?.basic_information?.thumb,
 			title: record?.basic_information?.title
 		})
