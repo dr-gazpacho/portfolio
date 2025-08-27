@@ -1,5 +1,6 @@
 import { json } from "@sveltejs/kit";
 import { DISCOGS_SECRET, DISCOGS_KEY } from "$env/static/private";
+import { formatLibrary } from "$lib/utils";
 
 // TO DO:
 // Create new class to represent an element in the collection
@@ -7,7 +8,7 @@ import { DISCOGS_SECRET, DISCOGS_KEY } from "$env/static/private";
 // Figure out how the heck they can "submit a request"
 
 export const GET = async () => {
-    let library = [];
+    let unformattedLibrary = [];
 
     try {
         for (let i = 1; i <= 6; i++) {
@@ -28,13 +29,15 @@ export const GET = async () => {
             const libraryAsJson = await discogsCollection.json();
             const releases = libraryAsJson.releases;
 
-            library.push(...releases);
+            unformattedLibrary.push(...releases);
         }
+
+        const { library, genres } = formatLibrary(unformattedLibrary);
 
         return json({
             success: true,
-            data: library,
-            totalCount: library.length
+            library,
+            genres
         });
     } catch (error) {
         return json({
