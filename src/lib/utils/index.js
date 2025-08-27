@@ -24,12 +24,12 @@ export const formatLibrary = (unformattedLibrary) => {
 	const library = [];
 	unformattedLibrary.map(record => {
 		library.push({
-			artist: record.basicInformation.artists
+			artist: record?.basic_information?.artists
 		})
 
-		const albumGenres = record.basicInformation.genres;
+		const albumGenres = record?.basic_information?.genres;
 		albumGenres.map(genre => {
-			if (genres.indexOf(genre) !== -1 {
+			if (genres.indexOf(genre) === -1) {
 				genres.push(genre);
 			}
 		})
