@@ -36,12 +36,9 @@ export const formatLibrary = (unformattedLibrary) => {
 			id: record?.basic_information?.id,
 			artist: formatArtists(record?.basic_information?.artists),
 			thumb: record?.basic_information?.thumb,
-			title: record?.basic_information?.title
+			title: record?.basic_information?.title,
+			year: record?.basic_information?.year
 		})
-
-		if (record?.basic_information?.artists?.length > 1) {
-			console.log(record?.basic_information?.artists)
-		}
 
 		record?.basic_information?.genres.map(genre => {
 			if (genres.indexOf(genre) === -1) {
