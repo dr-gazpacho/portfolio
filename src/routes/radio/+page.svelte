@@ -11,7 +11,7 @@
 			<h2>
 				{record.artist}
 			</h2>
-			<button on:click={fetchTracklist(record.id)}>Get Tracks</button>
+			<button on:click={() => fetchTracklist(record.id)}>Get Tracks</button>
 		</li>
 	{/each}
 </ul>
