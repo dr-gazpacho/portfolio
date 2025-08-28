@@ -1,5 +1,3 @@
-import { DISCOGS_SECRET, DISCOGS_KEY } from "$env/static/private";
-
 export const fetchMarkdownPosts = async () => {
 	const allPostFiles = import.meta.glob('/src/routes/blog/*.md');
 	const iterablePostFiles = Object.entries(allPostFiles); // iterablePostFiles = {path: resolver()}
@@ -48,4 +46,10 @@ export const formatLibrary = (unformattedLibrary) => {
 	})
 	return { library, genres }
 
+}
+
+export const fetchTracklist = async (recordId) => {
+	const res = await fetch(`/api/record/${recordId}`)
+	const response = await res.json();
+	return response
 }
