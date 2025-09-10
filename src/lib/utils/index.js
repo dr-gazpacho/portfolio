@@ -52,9 +52,3 @@ export const formatLibrary = (unformattedLibrary) => {
 	return { library, genres }
 
 }
-
-export const fetchTracklist = async (recordId) => {
-	const res = await fetch(`/api/record/${recordId}`)
-	const response = await res.json();
-	return response
-}

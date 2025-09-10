@@ -1,6 +1,5 @@
 <script>
 	import { onMount } from 'svelte';
-	import { fetchTracklist } from '$lib/utils/index.js';
 
 	// Initialize stores
 	let data = $state(null);
@@ -10,34 +9,27 @@
 	onMount(async () => {
 		try {
 			const response = await fetch(`/api/library`);
-
-			// Check response status first
 			if (!response.ok) {
 				throw new Error(`HTTP error! status: ${response.status}`);
 			}
-
-			// Parse JSON response
 			const jsonData = await response.json();
-
-			// Update store with parsed data
 			data = jsonData;
 		} catch (err) {
-			// Handle both string and Error object cases
 			error = err instanceof Error ? err.message : String(err);
 		} finally {
 			loading = false;
-			console.log(data);
 		}
 	});
 
-	// Modified sortem function that preserves data structure
-	function sortem(data, more) {
-		if (!data?.library || !Array.isArray(data.library)) return;
+	export const fetchTracklist = async recordId => {
+		const res = await fetch(`/api/record/${recordId}`);
+		const response = await res.json();
+		return response;
+	};
 
-		// Create a copy of the array to avoid mutating original data
-		const library = [...data.library];
-		const element = library.shift();
-		console.log(library, more);
+	function sortem(data, more) {
+		data.shift();
+		console.log(data);
 	}
 </script>
 
@@ -53,6 +45,7 @@
 			<li>
 				<h2>{record.artist}</h2>
 				<button onclick={() => fetchTracklist(record.id)} class="track-button"> Get Tracks </button>
+				<button onclick={() => sortem(data.library)} class="track-button"> Get tracko </button>
 			</li>
 		{/each}
 	</ul>
