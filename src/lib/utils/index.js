@@ -44,6 +44,11 @@ export const formatLibrary = (unformattedLibrary) => {
 			}
 		})
 	})
+
+	library.sort((a, b) => {
+		return a.artist.toLowerCase().localeCompare(b.artist.toLowerCase())
+	})
+
 	return { library, genres }
 
 }
