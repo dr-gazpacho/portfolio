@@ -3,7 +3,7 @@
 	import { fetchTracklist } from '$lib/utils/index.js';
 </script>
 
-<h1>Blog</h1>
+<h1>DJ Edgar Hoover</h1>
 
 {#await data.collection}
 	<p>Loading your data...</p>
