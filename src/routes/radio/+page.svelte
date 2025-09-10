@@ -5,13 +5,19 @@
 
 <h1>Blog</h1>
 
-<ul>
-	{#each data.collection.library as record}
-		<li>
-			<h2>
-				{record.artist}
-			</h2>
-			<button on:click={() => fetchTracklist(record.id)}>Get Tracks</button>
-		</li>
-	{/each}
-</ul>
+{#await data.collection}
+	<p>Loading your data...</p>
+{:then resolvedData}
+	<ul>
+		{#each resolvedData.library as record}
+			<li>
+				<h2>
+					{record.artist}
+				</h2>
+				<button on:click={() => fetchTracklist(record.id)}>Get Tracks</button>
+			</li>
+		{/each}
+	</ul>
+{:catch error}
+	<p>Error: {error.message}</p>
+{/await}
